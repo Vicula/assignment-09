@@ -130,9 +130,19 @@ console.assert(minimum(1000,-2,99,50) === -2)
 
 var justOneString = function(string1, string2) {
 	if ((typeof string1) === (typeof 'a')){
-		return true;
+		if ((typeof string2) === (typeof 'a')){
+			return false;
+
+		} else {
+			return true;
+		}
+
 	} else if ((typeof string2) === (typeof 'a')) {
-		return true;
+		if((typeof string1) === (typeof 'a')){
+			return false;
+		} else {
+			return true;
+		}
 	} else {
 		return false;
 	}
@@ -165,7 +175,7 @@ var doubleGlobalNumber = function() {
 
 var doTwice = function(doTwiceFun) {
 	for (i = 0; i < 2; i++){
-		doTwiceFun;
+		doTwiceFun();
 	}
 }
 
@@ -186,7 +196,7 @@ var ORACLE = 'NO'
 
 var conditionallyInvoke = function(invokeFun) {
 	if (ORACLE === 'YES'){
-		invokeFun;
+		invokeFun();
 	} else {
 		return null;
 	}
@@ -202,6 +212,10 @@ console.assert(NUMBER === 96)
 // Part 10
 
 // Make the following assertion work:
+
+var factory = fuction() {
+	return 'hello world';
+}
 
 console.assert(factory()() === 'hello world')  // INCEPTION!
 
