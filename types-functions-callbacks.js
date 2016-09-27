@@ -102,26 +102,15 @@ console.assert(sum(5,-5) === null)
 // boolean operators, or both (but not neither).
 
 var minimum = function (min1, min2, min3, min4) {
-	if ((min1 < min2 ||
-		 min1 < min3 ||
-		 min1 < min4) === true) {
+	if (min1 < min2 && min1 < min3 && min1 < min4) {
 		return min1;
-	} else if ((min2 < min1 ||
-				  min2 < min3 ||
-			  	  min2 < min4) === true) {
+	} else if (min2 < min3 && min2 < min4) {
 		return min2;
-	} else if ((min3 < min1 ||
-				  min3 < min2 ||
-			     min3 < min4) === true) {
+	} else if (min3 < min4) {
 		return min3;
-	} else if ((min4 < min1 ||
-				  min4 < min2 ||
-			  	  min4 < min3) === true)  {
-		return min4;
 	} else {
-		return null;
+		return min4;
 	}
-
 }
 
 console.assert(minimum(1,2,4,0) === 0)
