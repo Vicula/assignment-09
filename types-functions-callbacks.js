@@ -138,6 +138,17 @@ console.assert(minimum(1000,-2,99,50) === -2)
 // return true if either input is a string, but not
 // both or neither.
 
+
+var justOneString = function(string1, string2) {
+	if ((typeof string1) === (typeof 'a')){
+		return true;
+	} else if ((typeof string2) === (typeof 'a')) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 console.assert(justOneString('a',5) === true)
 console.assert(justOneString(6,'dotron') === true)
 console.assert(justOneString('peanut','butter') === false)
@@ -163,6 +174,12 @@ var doubleGlobalNumber = function() {
 	NUMBER = NUMBER * 2
 }
 
+var doTwice = function(doTwiceFun) {
+	for (i = 0; i < 2; i++){
+		doTwiceFun;
+	}
+}
+
 doTwice(incrementGlobalNumber)
 console.assert(NUMBER === 12)
 
@@ -177,6 +194,14 @@ console.assert(NUMBER === 48)
 // "YES." Otherwise, it will does nothing.
 
 var ORACLE = 'NO'
+
+var conditionallyInvoke = function(invokeFun) {
+	if (ORACLE === 'YES'){
+		invokeFun;
+	} else {
+		return null;
+	}
+}
 
 conditionallyInvoke(doubleGlobalNumber)
 console.assert(NUMBER === 48)
