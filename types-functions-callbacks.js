@@ -213,9 +213,7 @@ console.assert(NUMBER === 96)
 
 // Make the following assertion work:
 
-var factory = fuction() {
-	return 'hello world';
-}
+
 
 console.assert(factory()() === 'hello world')  // INCEPTION!
 
